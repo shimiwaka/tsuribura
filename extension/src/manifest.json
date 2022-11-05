@@ -1,6 +1,6 @@
 {
   "name": "ツリーにぶら下がった漫画を一気に読むやつ",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "manifest_version": 2,
   "description": "Twitterでリプライツリーに漫画が連投されている時、一括表示するボタンを生成します。",
   "browser_action": {
