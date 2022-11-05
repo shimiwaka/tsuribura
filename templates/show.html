@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/show.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/main.js"></script>
+    <title>ツリーにぶらさがった漫画をイッキに読むやつ</title>
+  </head>
+  <body>
+  <div class="swiper-parent">
+    <div class="swiper-container" dir="rtl">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide first_slide" style="background-image: url({{images[0]}});">
+          <div class="info-box" dir="ltr">
+            <div class="info">
+              <a href="https://twitter.com/{{author}}" target="_blank" class="author">@{{author}}</a><br>
+              <i class="fas fa-heart"></i>{{favs}} <i class="fas fa-retweet"></i>{{rts}}
+            </div>
+            <div class="info">
+              {{imgcount}}枚の画像が読み込まれました。
+              {%- if reload_mode %}
+              <br>[再読み込みしました]
+              {%- endif %}
+              </div>
+            <div class="tweet-text"> {{first_text | safe}} </div>
+          </div>
+        </div>
+        {%- for image in images %}
+        <div class="swiper-slide image_slide" style="background-image: url({{image}});"> </div>
+        {%- endfor %}
+        <div class="swiper-slide last_slide" style="background-image: url({{images[imgcount-1]}});">
+          <div class="info-box" dir="ltr">
+            <div class="control-area">
+              <a href="#" id="favorite_all_button" class="show-link">
+              すべて<i class="fas fa-heart" id="favorite_all"></i><i class="fas fa-spinner fa-spin" id="favorite_all_loading"></i></a>
+              <a href="#" id="retweet_all_button" class="show-link">
+              すべて<i class="fas fa-retweet" id="retweet_all"></i><i class="fas fa-spinner fa-spin" id="retweet_all_loading"></i></a>
+            </div>
+            <div id="result_area"></div>
+            <div>
+              <a href="https://twitter.com/share?url=https://peraimaru.site/show/{{ids[imgcount-1]}}&hashtags=ツリぶら&text={{share_text}}" onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow" class="twitter-link show-link">
+                <i class="fab fa-twitter"></i>Twitterで共有する
+              </a><br>
+              <a href="/reload/{{ ids[imgcount-1] }}" id="deep_reload_button" class="show-link"><i class="fas fa-redo-alt" id="deep_reload"></i><i class="fas fa-spinner fa-spin" id="deep_reload_loading"></i>再読み込み</a>
+              {%- if is_smart_phone %}
+              　<br><span class="small-text">※ スマホアプリ版でうまく読み込まれない場合、ツリーの一番最後のツイートを共有してみてください。</span>
+              {%- endif %}
+              </div>
+            <div class="tweet-text">
+              {{last_text | safe}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-scrollbar swiper-ctrl"></div>
+    </div>
+    <div class="swiper-header swiper-ctrl">
+      <a href="/" class="header-link">
+        <img src="/static/img/logo-mini.png" class="logo-mini">
+      </a>
+    </div>
+    <div class="swiper-pagination swiper-ctrl" dir="ltr"></div>
+    <div class="swiper-button-prev swiper-ctrl"></div>
+    <div class="swiper-button-next swiper-ctrl"></div>
+  </div>
+   <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+   <script>
+     var mySwiper = new Swiper ('.swiper-container', {
+       navigation: {
+         nextEl: '.swiper-button-prev',
+         prevEl: '.swiper-button-next',
+       },
+       pagination: { el: '.swiper-pagination', type: 'custom',
+                    renderCustom: function (swiper, current, total) {
+                      const ids = ['{{ "','".join(ids) | safe}}'];
+                      if(current >= total){ 
+                        total -= 2;
+                        return '<a href="https://twitter.com/{{author}}/status/' + ids[total-1] + '" target="_blank" class="show-link"><i class="fab fa-twitter"></i></a> ' + 
+                            total + ' / ' + total;  
+                      }
+                      total -= 2;
+                      current--;
+                      if(current == 0){ 
+                        return '<a href="https://twitter.com/{{author}}/status/' + ids[0] + '" target="_blank" class="show-link"><i class="fab fa-twitter"></i></a> ' + 
+                            '0 / ' + total;  
+                      }
+                      return '<a href="https://twitter.com/{{author}}/status/' + ids[current-1] + '" target="_blank" class="show-link"><i class="fab fa-twitter"></i></a> ' + 
+                            '<a href="#" id="favorite_button" onClick="favTweet()" class="show-link"><i class="fas fa-heart" id="favorite"></i></a> ' +
+                            '<i class="fas fa-spinner fa-spin" id="favorite_loading"></i>' + 
+                            '<a href="#" id="retweet_button" onClick="reTweet()" class="show-link"><i class="fas fa-retweet" id="retweet"></i></a> ' +
+                            '<i class="fas fa-spinner fa-spin" id="retweet_loading"></i>' + 
+                            '<input type="hidden" id="tweet_id" value="' + ids[current-1] + '">' +
+                            current + ' / ' + total;
+                    }},
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+        dragSize: 100
+      },
+       keyboard: true
+     });
+    </script>
+  </body>
+</html>

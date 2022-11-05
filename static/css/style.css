@@ -1,0 +1,457 @@
+* {
+    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+ }
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.title-logo-container {
+    text-align: center;
+    padding: 0 0 15px 0;
+}
+
+.submit-button {
+    color: #333333;
+    background-color: #fffaa8;
+    padding: 5px 25px;
+    margin: 5px;
+    border: 1px;
+    border-style: solid;
+}
+
+.sidebox-container {
+    display: flex;
+    margin: 0 auto;
+    width: 500px;
+}
+
+ul {
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.sidebox {
+    float: left;
+}
+
+.login-status {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.usage {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.usage-image {
+    width: 400px;
+}
+
+.link-icon-image {
+    padding: 5px 25px 5px 25px;
+}
+
+.supplement {
+    width: 640px;
+    margin: 0 auto;
+}
+
+.app-link {
+    font-size: 16px;
+    padding: 15px;
+}
+
+.header-text {
+    font-size: 28px;
+}
+
+.show-link {
+    color: #ffffff;
+}
+
+.content-main {
+    text-align: center;
+}
+
+.error {
+    font-size: 24px;
+    text-align: center;
+}
+
+.back-link {
+    font-size: 20px;
+    text-align: center;
+}
+
+.tweet-text {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    width : 400px;
+    border : 1px;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.7);
+    color: #000000;
+}
+
+.help-box {
+    display: block;
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: left;
+}
+
+.header-link {
+    color: #FFFFFF;
+}
+
+.line {
+    color: #FFFFFF;
+}
+
+.info-box {
+    font-size: 16px;
+    position: relative;
+    display: block;
+    text-align: center;
+    top: 50%;
+    color: #FFFFFF;
+    -webkit-transform : translateY(-50%);
+    transform : translateY(-50%);
+}
+
+.author {
+    color: #FFFFFF;
+}
+
+.google-play-image{
+    width: 240px;
+}
+
+.chrome-store-image{
+    width: 120px;
+}
+
+a {
+    color: #0066CC;
+}
+
+.rank-container {
+    padding: 5px 25px 15px 25px;
+}
+
+.rank-box {
+    padding: 15px;
+    border: 1px;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-radius: 15px;
+    width: 480px;
+    margin: 0 auto;
+}
+
+.hot-comic {
+    padding: 5px 0px 15px 0px;
+    border: 1px;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-radius: 15px;
+    width: 480px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+hr {
+    height: 2px;
+    background-color: #DDDDDD;
+    border: 0;
+}
+
+.hot-comic-header {
+    font-size: 24px;
+}
+
+.hot-comic-header-logo {
+    max-width: 100%;
+    height: auto;
+    width /***/:auto;    
+}
+
+.heading-text {
+    padding: 25px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+.usage-image-sub {
+    margin : 0 auto;
+}
+
+.supplement-image {
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.logo-mini {
+    max-width: 100%;
+    height: auto;
+    width /***/:auto;    
+}
+
+.common-link {
+    color: #0066CC;
+}
+
+.back-to-top {
+    font-size: 28px;
+    text-align: center;
+}
+
+.back-to-top-image {
+    max-width: 70%;
+    height: auto;
+    width /***/:auto;
+}
+
+.top-image {
+    width: 320px;
+}
+
+.rank-info {
+    padding: 3px 0 3px 0;
+    font-size: 20px;
+    color: #3957b7;
+}
+
+.rank-summary {
+    font-size: 30px;
+}
+.back {
+    text-align: center;
+}
+.top_image {
+    width: 280px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    border: 1px;
+    border-style: solid;
+    border-color: #AAAAAA;
+}
+
+.back-to-top-img {
+    width: 200px;
+}
+
+ul {
+    text-align: left;
+}
+
+li {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.red-text {
+    color: #FF0000;
+}
+
+.small-text {
+    font-size: 12px;
+    word-wrap: break-word;
+}
+
+.common-image {
+    margin-top: 10px;
+    margin-bottom: 10px;   
+}
+
+#favorite_all_loading {
+    display: none;
+}
+
+#retweet_all_loading {
+    display: none;
+}
+
+#favorite_loading {
+    display: none;
+}
+
+#retweet_loading {
+    display: none;
+}
+
+#deep_reload_loading {
+    display: none;
+}
+
+.swiper-container {
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.swiper-slide {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+}
+
+.swiper-button-prev {
+    color: #AAAAAA;
+}
+
+.swiper-button-next {
+    color: #AAAAAA;
+}
+
+.swiper-pagination {
+    text-align: right;
+    color: #FFFFFF;
+    background-color: rgba(0,0,0,0.5);
+    bottom: 0px;
+    font-size: 20px;
+    z-index: 0;
+}
+
+.swiper-header {
+    text-align: right;
+    color: #FFFFFF;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0px;
+}
+
+.swiper-ctrl {
+    z-index: 50;
+}
+
+.swiper-scrollbar {
+    top: 95%;
+    z-index: 50;
+}
+
+.first_slide::before {
+    background-color:rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: " ";
+}
+
+.last_slide::before {
+    background-color:rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: " ";
+}
+
+@media only screen and (max-width : 640px){
+    .title-logo {
+        width: 90%;
+    }
+    input[type="text"]{
+        width: 90%;
+    }
+    .tweet-text {
+        width:90%;
+        text-align: center;
+    }
+    .help-box {
+        width:100%;
+    }
+    .swiper-pagination {
+        font-size: 30px;
+    }
+    .swiper-scrollbar {
+        top: 90%;
+    }    
+    .common-image {
+        width: 90%;   
+    }
+    .google-play-image{
+        width: 150px;
+    }   
+    .chrome-store-image{
+        width: 100px;
+    }
+    .sidebox-container {
+        width: 300px;
+    }
+    .link-icon-image {
+        width: 100px;
+    }
+    .usage {
+        padding: 8px;
+    }
+    .app-link {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .supplement {
+        width: 90%;
+    }   
+    .usage-image {
+        width: 95%;
+    }
+    .usage-image-sub {
+        width: 95%;
+    }
+    .supplement {
+        font-size: 12px;
+    }
+    .hot-comic {
+        width: 90%;
+    }
+    .rank-info {
+        font-size: 16px;
+    }
+    .rank-container {
+        width: 90%;
+    }
+    .rank-box {
+        width: 90%;
+    }
+    .back-to-top-img {
+        width: 40%;
+    }
+    .rank-summary {
+        font-size: 24px;
+    }
+    .supplement-image {
+        width: 100%;
+    }
+    .supplement-image-sub {
+        width: 100%;
+    }
+    .tweet-text {
+        font-size: 14px;
+        width: 80%;
+    }
+    .top-image {
+        width: 80%;
+    }
+}

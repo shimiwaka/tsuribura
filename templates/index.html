@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <title>ツリーにぶらさがった漫画をイッキに読むやつ</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="title-logo-container">
+      <img src="./static/img/logo.png" class="title-logo">
+    </div>
+    <div class="content-main">
+      <form action="/show" method="get">
+        <input type="text" name="tweet_url" size="80" placeholder="読みたい漫画ツイートのURLを入力"><br>
+        <input type="submit" value="イッキ読みする" class="submit-button">
+      </form>
+      <div class="login-status">
+        {%- if 'login' in session and session['login'] %}
+        <div class="logout"><a href="/logout">ログアウト</a></div>
+        {%- else %}
+        <div class="login"><a href="/auth"><img src="/static/img/sign_in_with_twitter.png"></a></div>
+        {%- endif %}
+      </div>
+      <hr>
+      <div class="usage">
+        <div class="usage-text">
+          ツリーになった漫画ツイートのURLを貼り付けると、漫画をイッキに読めます。
+        </div>
+        <div class="sidebox-container">
+          <div class="sidebox">
+            <a href="/static/help.html">
+              <img src="/static/img/usage_icon.png" class="link-icon-image">
+            </a>
+          </div>
+          <div class="sidebox">
+            <a href="/static/ranking_24h.html">
+              <img src="/static/img/ranking_icon.png" class="link-icon-image">
+            </a>
+          </div>
+        </div>
+        <div class="usage-text">
+          <strong>Android、PC(Google Chrome)では専用アプリでURL入力不要！<br>
+          <span class="red-text">※アプリ版の場合、ツリーの一番下のツイートを共有したほうがうまくいきやすいです。</span></strong>
+        </div>
+        <div class="app-link">
+          <div class="sidebox-container">
+            <div class="sidebox">
+              <a href="https://play.google.com/store/apps/details?id=com.kicked.twicom" target="_blank">
+                Androidアプリ<br>
+                <img src="/static/img/google_play.png" class="google-play-image">
+              </a>
+            </div>
+            <div class="sidebox">
+              <a href="https://chrome.google.com/webstore/detail/%E3%83%84%E3%83%AA%E3%83%BC%E3%81%AB%E3%81%B6%E3%82%89%E4%B8%8B%E3%81%8C%E3%81%A3%E3%81%9F%E6%BC%AB%E7%94%BB%E3%82%92%E4%B8%80%E6%B0%97%E3%81%AB%E8%AA%AD%E3%82%80%E3%82%84%E3%81%A4/febnnneafpdgoennelbebbaecgijhlli?hl=ja&authuser=0" target="_blank">
+                Google Chrome拡張機能<br>
+                <img src="/static/img/chrome_web_store.png" class="chrome-store-image">
+              </a>
+            </div>
+          </div>
+        </div>
+        {%- if top_id %}
+        <div class="hot-comic">
+          <div class="hot-comic-header">
+            <img src="./static/img/hot-header.png" class="hot-comic-header-logo">
+          </div>
+          <div class="rank-info">
+            {{top_count}}アクセス {{top_imgcount}}ページ <i class="fas fa-heart"></i>{{top_favs}} <i class="fas fa-retweet"></i>{{top_rts}}<br>
+            <a href="https://twitter.com/{{top_author}}">@{{top_author}}</a> 
+          </div>
+          <hr>
+          <div class="rank-content">{{top_first_text | safe}}</div>
+          <div class="comic_top">
+            <a href="./show/{{ top_id }}">
+              <img src="{{top_image}}" class="top_image">
+            </a>
+          </div>
+        </div>
+        {%- endif %}
+      </div>
+      <hr>
+      <div class="contanct">
+        【問い合わせ先】しみわか(<a href="https://twitter.com/_shimiwaka" target="_blank">@_shimiwaka</a>)<br>
+          koganei@nemucure.sakura.ne.jp
+      </div>
+    </div>
+</body>
+</html>
