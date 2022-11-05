@@ -3,7 +3,7 @@
 
 Tsuribura is web service and chrome extension supporting to read comics in twitter.
 
-This is written by Flask for my practice at about 2021/2.
+This is written by Flask for my practice at about 2020/9 - 2021/2.
 
 As such, it is very rudimentary and designed to run on inexpensive web servers (ex. さくらの Web サーバー).
 
