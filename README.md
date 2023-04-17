@@ -9,9 +9,11 @@ As such, it is very rudimentary and designed to run on inexpensive web servers (
 
 ## Sample
 
-See https://peraimaru.site/.
+~~See https://peraimaru.site/~~
 
-This link may suddenly become unavailable.
+~~This link may suddenly become unavailable.~~
+
+Service has been terminated due to the Twitter API becoming chargeable 😭.
 
 ## Design
 
